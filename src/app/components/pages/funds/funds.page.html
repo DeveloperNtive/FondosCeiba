@@ -1,0 +1,64 @@
+<section class="funds-page">
+  <header class="funds-hero" aria-label="Resumen de fondos">
+    <div class="funds-hero-copy">
+      <p class="eyebrow">Panel de inversion</p>
+      <h1>Selecciona tu fondo ideal</h1>
+      <p class="description">
+        Explora opciones FPV y FIC, define el monto y simula operaciones como en una app bancaria real.
+      </p>
+    </div>
+    <div class="balance-card" aria-live="polite">
+      <p>Balance disponible</p>
+      @if (loadingBalance()) {
+        <strong>Cargando...</strong>
+      } @else {
+        <strong>{{ userBalance() | currency:'COP':'symbol':'1.0-0' }}</strong>
+      }
+    </div>
+  </header>
+
+  @if (loadingFunds()) {
+    <p class="state-message">Cargando fondos...</p>
+  } @else {
+    <section class="funds-grid" aria-label="Listado de fondos">
+      <app-card-fund
+        [funds]="funds()"
+        [selectedFundId]="selectedFundId()"
+        (fundSelected)="selectFund($event)"
+      />
+    </section>
+  }
+
+  <section class="action-card" aria-label="Acciones del fondo seleccionado">
+    <div class="action-header">
+      <h3>Operacion</h3>
+      <p>
+        @if (selectedFund) {
+          {{ selectedFund.display_name }}
+        } @else {
+          Sin fondo seleccionado
+        }
+      </p>
+    </div>
+
+    <label for="amount">Monto a operar</label>
+    <input id="amount" type="number" [formControl]="amountControl" min="1" />
+
+    <div class="buttons-row">
+      <button type="button" class="btn btn-primary" (click)="subscribe()" [disabled]="actionInProgress()">
+        Suscribirme
+      </button>
+      <button type="button" class="btn btn-ghost" (click)="cancel()" [disabled]="actionInProgress()">
+        Cancelar suscripcion
+      </button>
+    </div>
+
+    @if (successMessage()) {
+      <p class="feedback success" aria-live="polite">{{ successMessage() }}</p>
+    }
+
+    @if (errorMessage()) {
+      <p class="feedback error" aria-live="assertive">{{ errorMessage() }}</p>
+    }
+  </section>
+</section>

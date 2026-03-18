@@ -1,0 +1,14 @@
+export interface Fund {
+  id: number;
+  name: string;
+  minAmount: number;
+  category: 'FPV' | 'FIC';
+}
+
+export enum FundName {
+  FPV_BTG_PACTUAL_RECAUDADORA = 'BTG PACTUAL RECAUDADORA',
+  FPV_BTG_PACTUAL_ECOPETROL = 'BTG PACTUAL ECOPETROL',
+  DEUDAPRIVADA = 'DEUDA PRIVADA',
+  FDO_ACCIONES = 'FDO ACCIONES',
+  FPV_BTG_PACTUAL_DINAMICA = 'FPV BTG PACTUAL DINAMICA',
+}

@@ -1,0 +1,35 @@
+<div class="app-shell">
+  <header class="topbar" aria-label="Barra de navegacion principal">
+    <a routerLink="/fondos" class="brand" aria-label="Ir al inicio">
+      <span class="brand-mark">F</span>
+      <span class="brand-copy">
+        <strong>FondoLab</strong>
+        <small>simulador financiero</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Navegacion">
+      <a routerLink="/fondos" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+        Fondos
+      </a>
+      <a routerLink="/transacciones" routerLinkActive="is-active">Transacciones</a>
+    </nav>
+
+    <div class="balance-chip" aria-live="polite">
+      <span>Balance</span>
+      @if (balance() !== null) {
+        <strong>{{ balance() | currency:'COP':'symbol':'1.0-0' }}</strong>
+      } @else {
+        <strong>--</strong>
+      }
+    </div>
+  </header>
+
+  <main class="content" id="main-content" tabindex="-1">
+    <router-outlet />
+  </main>
+
+  <footer class="footer">
+    <p>FondoLab {{ currentYear }}. Navega, invierte y gestiona tus transacciones.</p>
+  </footer>
+</div>

@@ -1,0 +1,46 @@
+.fund-card-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 0.9rem;
+}
+
+.fund-card {
+	border-radius: 1rem;
+	border: 1px solid var(--color-line);
+	background: #ffffff;
+	padding: 1rem;
+	text-align: left;
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.fund-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 24px rgba(16, 61, 51, 0.12);
+}
+
+.fund-card.is-selected {
+	border-color: var(--color-accent);
+	box-shadow: 0 0 0 2px rgba(243, 116, 62, 0.16);
+}
+
+.fund-card h2 {
+	margin: 0.55rem 0;
+	font-size: 1rem;
+}
+
+.fund-card p {
+	margin: 0;
+	color: var(--color-muted);
+	font-size: 0.93rem;
+}
+
+.tag {
+	display: inline-flex;
+	border-radius: 999px;
+	padding: 0.2rem 0.6rem;
+	background: rgba(17, 130, 109, 0.12);
+	color: var(--color-primary);
+	font-size: 0.75rem;
+	font-weight: 700;
+}

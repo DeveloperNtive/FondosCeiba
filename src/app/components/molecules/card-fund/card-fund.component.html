@@ -1,0 +1,14 @@
+<div class="fund-card-list">
+    @for (fund of funds(); track fund.id) {
+        <button
+            type="button"
+            class="fund-card"
+            [class.is-selected]="selectedFundId() === fund.id"
+            (click)="selectFund(fund)"
+        >
+            <span class="tag">{{ fund.category }}</span>
+            <h2>{{ getFundDisplayName(fund.name) }}</h2>
+            <p>Monto minimo: {{ fund.minAmount | currency:'COP':'symbol':'1.0-0' }}</p>
+        </button>
+    }
+</div>

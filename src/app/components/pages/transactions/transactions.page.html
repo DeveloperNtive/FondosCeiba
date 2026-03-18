@@ -1,0 +1,53 @@
+<section class="transactions-page">
+  <header class="transactions-header">
+    <div>
+      <p class="eyebrow">Historial</p>
+      <h1>Transacciones recientes</h1>
+      <p>
+        Visualiza cada suscripcion o cancelacion con fecha, tipo y monto.
+      </p>
+    </div>
+    <button type="button" class="clear-btn" (click)="clearHistory()" [disabled]="clearing() || loading()">
+      Limpiar historial
+    </button>
+  </header>
+
+  @if (loading()) {
+    <p class="state-message">Cargando transacciones...</p>
+  } @else if (transactions().length === 0) {
+    <p class="state-message">No hay transacciones registradas todavia.</p>
+  } @else {
+    <div class="table-wrapper" role="region" aria-label="Tabla de transacciones">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fondo</th>
+            <th>Tipo</th>
+            <th>Monto</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (transaction of transactions(); track transaction.id) {
+            <tr>
+              <td>{{ transaction.id }}</td>
+              <td>{{ transaction.fundId }}</td>
+              <td>
+                <span class="type-badge" [class.cancel]="transaction.type === 'CANCEL'">
+                  {{ transaction.type }}
+                </span>
+              </td>
+              <td>{{ transaction.amount | currency:'COP':'symbol':'1.0-0' }}</td>
+              <td>{{ transaction.date | date:'dd/MM/yyyy, HH:mm' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+
+  @if (errorMessage()) {
+    <p class="error" aria-live="assertive">{{ errorMessage() }}</p>
+  }
+</section>

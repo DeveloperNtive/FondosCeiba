@@ -1,0 +1,141 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.topbar {
+  position: sticky;
+  top: 1rem;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 1rem;
+  box-shadow: 0 15px 35px rgba(8, 56, 44, 0.12);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.6rem;
+  color: #ffffff;
+  font-weight: 800;
+  background: linear-gradient(160deg, var(--color-primary), var(--color-accent));
+}
+
+.brand-copy {
+  display: grid;
+  line-height: 1.05;
+}
+
+.brand-copy strong {
+  color: var(--color-text);
+}
+
+.brand-copy small {
+  color: var(--color-muted);
+  font-size: 0.74rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.nav a:hover {
+  transform: translateY(-1px);
+  background: rgba(15, 70, 59, 0.08);
+}
+
+.nav a.is-active {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.balance-chip {
+  border: 1px solid var(--color-line);
+  border-radius: 0.8rem;
+  padding: 0.45rem 0.7rem;
+  display: grid;
+  gap: 0.12rem;
+  background: #ffffff;
+}
+
+.balance-chip span {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.balance-chip strong {
+  font-size: 0.92rem;
+}
+
+.content {
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 30px rgba(15, 44, 37, 0.08);
+}
+
+.footer {
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+  }
+
+  .balance-chip {
+    width: 100%;
+  }
+}
