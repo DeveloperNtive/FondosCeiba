@@ -177,6 +177,42 @@ It also handles:
 
 ---
 
-## 9) Notes
+## 9) Demo / Evidencias (Imágenes y Video)
+
+Use esta sección para adjuntar evidencia visual del funcionamiento de la app.
+
+### 9.1 Capturas de pantalla
+
+> Recomendación: guardar archivos en `docs/evidencias/`
+
+#### Home / Listado de fondos
+![Home - Fondos](docs/evidencias/home-fondos.png)
+
+#### Suscripción exitosa
+![Suscripción](docs/evidencias/suscripcion-exitosa.png)
+
+#### Cancelación exitosa
+![Cancelación](docs/evidencias/cancelacion-exitosa.png)
+
+#### Historial de transacciones
+![Transacciones](docs/evidencias/transacciones.png)
+
+### 9.2 Video demo
+
+- Opción 1 (link externo): [Ver demo](https://your-video-link-here)
+- Opción 2 (archivo en repo): `docs/evidencias/demo-fondos.mp4`
+
+### 9.3 Guion sugerido para la demo (manual)
+
+1. Mostrar listado de fondos.
+2. Realizar una suscripción válida.
+3. Mostrar actualización de saldo.
+4. Intentar una operación inválida (validación/error).
+5. Cancelar suscripción.
+6. Mostrar historial de transacciones final.
+
+---
+
+## 10) Notes
 
 If your team wants strict version pinning, add `engines` to `package.json` (Node/npm) and lock Angular CLI in devDependencies.
