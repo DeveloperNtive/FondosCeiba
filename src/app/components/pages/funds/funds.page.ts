@@ -7,6 +7,7 @@ import { Fund } from '../../../models/fund.model';
 import { FundService } from '../../../core/services/fund/fund.service';
 import { UserService } from '../../../core/services/user/user.service';
 import { CardFundComponent } from '../../molecules/card-fund/card-fund.component';
+import { FUND_NAME_MAP } from '../../../shared/constants/fund-name.map';
 
 @Component({
   selector: 'app-funds-page',
@@ -28,6 +29,10 @@ export class FundsPageComponent {
   readonly actionInProgress = signal(false);
   readonly errorMessage = signal('');
   readonly successMessage = signal('');
+
+  readonly notificationMethod = signal<'EMAIL' | 'SMS'>('EMAIL');
+
+  readonly fundNameMap = FUND_NAME_MAP;
 
   readonly amountControl = new FormControl(0, {
     nonNullable: true,
@@ -65,7 +70,7 @@ export class FundsPageComponent {
     this.successMessage.set('');
 
     this.fundService
-      .subscribeToFund(fund, amount)
+      .subscribeToFund(fund, amount, this.notificationMethod())
       .pipe(
         finalize(() => this.actionInProgress.set(false)),
         takeUntilDestroyed(this.destroyRef),
@@ -147,5 +152,9 @@ export class FundsPageComponent {
         next: (balance) => this.userBalance.set(balance),
         error: () => this.errorMessage.set('No fue posible cargar el balance del usuario.'),
       });
+  }
+
+  getFundDisplayName(name: string): string {
+    return this.fundNameMap[name as keyof typeof FUND_NAME_MAP] ?? name;
   }
 }

@@ -15,9 +15,10 @@ export class FundService {
     return this.http.get<Fund[]>(this.fundsApiUrl);
   }
 
-  subscribeToFund(fund: Fund, amount: number): Observable<Transaction> {
+  subscribeToFund(fund: Fund, amount: number, notificationMethod: 'EMAIL' | 'SMS'): Observable<Transaction> {
     return this.http.post<Transaction>(`${this.fundsApiUrl}/${fund.id}/subscribe`, {
       amount,
+      notificationMethod,
     });
   }
 

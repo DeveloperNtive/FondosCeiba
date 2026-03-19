@@ -34,7 +34,7 @@
       <h3>Operacion</h3>
       <p>
         @if (selectedFund) {
-          {{ selectedFund.display_name }}
+          {{ getFundDisplayName(selectedFund.name) }}
         } @else {
           Sin fondo seleccionado
         }
@@ -43,6 +43,30 @@
 
     <label for="amount">Monto a operar</label>
     <input id="amount" type="number" [formControl]="amountControl" min="1" />
+
+    <fieldset class="notification-method">
+      <legend>Método de notificación</legend>
+      <label>
+        <input
+          type="radio"
+          name="notificationMethod"
+          value="EMAIL"
+          [checked]="notificationMethod() === 'EMAIL'"
+          (change)="notificationMethod.set('EMAIL')"
+        />
+        Email
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="notificationMethod"
+          value="SMS"
+          [checked]="notificationMethod() === 'SMS'"
+          (change)="notificationMethod.set('SMS')"
+        />
+        SMS
+      </label>
+    </fieldset>
 
     <div class="buttons-row">
       <button type="button" class="btn btn-primary" (click)="subscribe()" [disabled]="actionInProgress()">

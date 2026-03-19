@@ -134,8 +134,9 @@ export const mockApiInterceptor: HttpInterceptorFn = (
   if (req.method === 'POST' && fundActionMatch) {
     const fundId = Number(fundActionMatch[1]);
     const action = fundActionMatch[2];
-    const body = req.body as { amount?: number } | null;
+    const body = req.body as { amount?: number; notificationMethod?: 'EMAIL' | 'SMS' } | null;
     const amount = body?.amount;
+    const notificationMethod = body?.notificationMethod;
 
     const fund = fundsState.find((item) => item.id === fundId);
     if (!fund) {
@@ -181,6 +182,7 @@ export const mockApiInterceptor: HttpInterceptorFn = (
       amount,
       type: action === 'subscribe' ? 'SUBSCRIPTION' : 'CANCEL',
       date: new Date(),
+      ...(action === 'subscribe' && notificationMethod ? { notificationMethod } : {}),
     };
 
     transactionsState = [transaction, ...transactionsState];
