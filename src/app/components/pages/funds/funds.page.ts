@@ -39,8 +39,6 @@ export class FundsPageComponent {
     validators: [Validators.required, Validators.min(1)],
   });
 
-  readonly fundNameMap = FUND_NAME_MAP;
-
   constructor() {
     this.loadFunds();
     this.loadBalance();
