@@ -7,6 +7,7 @@ import { Fund } from '../../../models/fund.model';
 import { FundService } from '../../../core/services/fund/fund.service';
 import { UserService } from '../../../core/services/user/user.service';
 import { CardFundComponent } from '../../molecules/card-fund/card-fund.component';
+import { FUND_NAME_MAP } from '../../../shared/constants/fund-name.map';
 
 @Component({
   selector: 'app-funds-page',
@@ -33,6 +34,8 @@ export class FundsPageComponent {
     nonNullable: true,
     validators: [Validators.required, Validators.min(1)],
   });
+
+  readonly fundNameMap = FUND_NAME_MAP;
 
   constructor() {
     this.loadFunds();
@@ -147,5 +150,9 @@ export class FundsPageComponent {
         next: (balance) => this.userBalance.set(balance),
         error: () => this.errorMessage.set('No fue posible cargar el balance del usuario.'),
       });
+  }
+
+  getFundDisplayName(name: string): string {
+    return this.fundNameMap[name as keyof typeof FUND_NAME_MAP] ?? name;
   }
 }

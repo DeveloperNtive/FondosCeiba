@@ -34,7 +34,7 @@
       <h3>Operacion</h3>
       <p>
         @if (selectedFund) {
-          {{ selectedFund.display_name }}
+          {{ getFundDisplayName(selectedFund.name) }}
         } @else {
           Sin fondo seleccionado
         }
