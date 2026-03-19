@@ -179,39 +179,23 @@ It also handles:
 
 ## 9) Demo / Evidencias (Imágenes y Video)
 
-Use esta sección para adjuntar evidencia visual del funcionamiento de la app.
+### 9.1 Scren shots
 
-### 9.1 Capturas de pantalla
+#### Home / Fondos list
+<img width="1893" height="952" alt="image" src="https://github.com/user-attachments/assets/374d8051-e304-4864-83a2-7a0d693826d1" />
 
-> Recomendación: guardar archivos en `docs/evidencias/`
+#### Success subscription
+<img width="1886" height="957" alt="image" src="https://github.com/user-attachments/assets/644ab6f1-73e1-4fa9-9181-136073605b8b" />
 
-#### Home / Listado de fondos
-![Home - Fondos](docs/evidencias/home-fondos.png)
+#### Cancel subscription
+<img width="1885" height="951" alt="image" src="https://github.com/user-attachments/assets/6ae5bde2-2ddd-4655-8bb8-b8edc560b2ff" />
 
-#### Suscripción exitosa
-![Suscripción](docs/evidencias/suscripcion-exitosa.png)
-
-#### Cancelación exitosa
-![Cancelación](docs/evidencias/cancelacion-exitosa.png)
-
-#### Historial de transacciones
-![Transacciones](docs/evidencias/transacciones.png)
+#### Transaction history
+<img width="1898" height="952" alt="image" src="https://github.com/user-attachments/assets/f172c056-f50a-4c1c-87ac-7fea474d09c6" />
 
 ### 9.2 Video demo
 
-- Opción 1 (link externo): [Ver demo](https://your-video-link-here)
-- Opción 2 (archivo en repo): `docs/evidencias/demo-fondos.mp4`
-
-### 9.3 Guion sugerido para la demo (manual)
-
-1. Mostrar listado de fondos.
-2. Realizar una suscripción válida.
-3. Mostrar actualización de saldo.
-4. Intentar una operación inválida (validación/error).
-5. Cancelar suscripción.
-6. Mostrar historial de transacciones final.
-
----
+https://drive.google.com/file/d/1EmM2TTCZm9-_kF4Abqpt73PMyAAXTjQo/view?usp=sharing
 
 ## 10) Notes
 
